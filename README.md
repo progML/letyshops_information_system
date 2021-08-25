@@ -51,6 +51,3 @@
 ## DDL
 ![alt-текст](https://github.com/progML/letyshops_information_system/blob/main/result/Untitled%20Diagram.jpg)
 
-
-
-
