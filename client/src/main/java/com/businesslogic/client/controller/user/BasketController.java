@@ -11,9 +11,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
+/**
+ * Контроллер для взаемодействия с корзиной
+ *
+ * Основные функции:
+ * 1) Добавить устройство в корзину
+ * 2) Удалить устройство из корзины
+ * 3) Просмотреть содержимое корзины
+ * 4) Узнать итоговую стоимость содержимого в корзине
+ *
+ * @author progML
+ */
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/client")
+
 public class BasketController {
 
     private final BasketService basketService;
@@ -21,8 +34,12 @@ public class BasketController {
     private final ClientService clientService;
 
 
-
-    //добавление в корзину
+    /**
+     * Добавление товара в корзину
+     *
+     * @param basketEntityDto - слой передачи данных
+     * @param principal - пользователь, вошедший в систему
+     */
     @PostMapping("/basket/add")
     public ResponseEntity<String> addOrder(@RequestBody BasketEntityDto basketEntityDto, Principal principal) {
         if (basketService.checkDeviceId(basketEntityDto.getDevice_id()) > 0) {
