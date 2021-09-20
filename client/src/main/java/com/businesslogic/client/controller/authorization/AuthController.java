@@ -25,7 +25,7 @@ public class AuthController {
 
     //Регистрация покупателя
     @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String registerUser(@RequestBody RegistrationRequest registrationRequest) {
+    public String registrationUser(@RequestBody RegistrationRequest registrationRequest) {
         ClientEntity u = new ClientEntity();
         u.setPassword(registrationRequest.getPassword());
         u.setLogin(registrationRequest.getLogin());
@@ -35,7 +35,7 @@ public class AuthController {
 
     //Авторизация покупателя
     @PostMapping(value = "/auth", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public AuthResponse auth(@RequestBody AuthRequest request) {
+    public AuthResponse authorizationUser(@RequestBody AuthRequest request) {
         ClientEntity clientEntity = clientService.findByLoginAndPassword(request.getLogin(), request.getPassword());
         String token = jwtProvider.generateToken(clientEntity.getLogin());
         return new AuthResponse(token);

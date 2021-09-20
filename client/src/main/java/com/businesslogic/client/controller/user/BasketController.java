@@ -45,7 +45,7 @@ public class BasketController {
 
     //удаление товара из корзины
     @DeleteMapping("/basket/{id}")
-    public ResponseEntity<String> delete(@PathVariable Integer id, Principal principal) {
+    public ResponseEntity<String> deleteItem(@PathVariable Integer id, Principal principal) {
         userId = clientService.findByLogin(principal.getName()).getId();
         try {
             if (basketService.findUserByBasketId(id) == userId) {
@@ -76,7 +76,7 @@ public class BasketController {
 
     //итогавая стоимость в корзине
     @GetMapping("basket/sum")
-    public ResponseEntity sum(Principal principal) {
+    public ResponseEntity getPrice(Principal principal) {
         userId = clientService.findByLogin(principal.getName()).getId();
         return new ResponseEntity(
                 "Итогавая стоимоть: " + basketService.findSum(userId) + " Кэшбэк составит: " + basketService.findCashback(),

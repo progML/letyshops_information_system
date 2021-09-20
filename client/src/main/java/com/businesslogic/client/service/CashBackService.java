@@ -34,5 +34,4 @@ public class CashBackService {
         }
 
     }
-//    "UPDATE orders SET place = 'Продавец отправил заказ' where id =:Id and place = 'Продавец собирает заказ' ")
 }
