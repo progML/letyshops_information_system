@@ -96,11 +96,4 @@ public class OrderService {
         return orderRepository.getCashback(userId);
     }
 
-
-    public String test() {
-        System.out.println("lol");
-        return "lol";
-    }
-
-
 }

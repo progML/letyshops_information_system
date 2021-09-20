@@ -14,6 +14,5 @@ public class AutoCashback implements Job {
     @Override
     public void execute(JobExecutionContext jobExecutionContext) {
         cashBackService.sendCashBack();
-        System.out.println("Всем отправлен кэшбек");
     }
 }
