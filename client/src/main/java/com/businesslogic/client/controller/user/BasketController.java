@@ -20,8 +20,6 @@ public class BasketController {
 
     private final ClientService clientService;
 
-
-
     private int userId;
 
 
@@ -37,7 +35,7 @@ public class BasketController {
             } catch (Exception e) {
                 return new ResponseEntity<>("Ваша корзина пуста", HttpStatus.NOT_FOUND);
             }
-        }else {
+        } else {
             return new ResponseEntity<>("Такого товара не существует", HttpStatus.NOT_FOUND);
         }
     }
@@ -59,7 +57,6 @@ public class BasketController {
             return new ResponseEntity<>("Товара с таким индексом нет в корзине", HttpStatus.NOT_FOUND);
         }
     }
-
 
 
     //  просмотр корзины

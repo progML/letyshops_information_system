@@ -25,7 +25,7 @@ public interface OrderRepository extends JpaRepository<OrderEntity, Integer> {
     List<Object> findByBasketId(@Param("userId") int userId);
 
     @Query(nativeQuery = true, value = "SELECT count(device_id) from basket where client_id =:userId")
-    long findCount(@Param("userId") int userId);
+    long findNumberItemBasket(@Param("userId") int userId);
 
 
     @Query(nativeQuery = true, value = "SELECT id FROM orders where client_id =:userId ORDER BY ID DESC LIMIT 1")

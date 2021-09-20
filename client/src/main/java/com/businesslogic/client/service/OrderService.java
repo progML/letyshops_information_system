@@ -25,8 +25,8 @@ public class OrderService {
 
 
     //Количество позицей в корзине
-    public long findCount(int userId) {
-        return orderRepository.findCount(userId);
+    public long findNumberItemBasket(int userId) {
+        return orderRepository.findNumberItemBasket(userId);
     }
 
     public long findOrderId(int userId) {
@@ -59,10 +59,6 @@ public class OrderService {
     }
 
 
-    @Transactional
-    public List<Object> findAllOrdersFromStore(int userId) {
-        return orderRepository.findAllOrdersFromStore(userId);
-    }
 
 
     public void buyAll(int id, int userId) {

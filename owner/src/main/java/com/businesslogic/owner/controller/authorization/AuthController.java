@@ -1,13 +1,13 @@
 package com.businesslogic.owner.controller.authorization;
 
 
+import com.businesslogic.client.security.jwt.JwtProvider;
 import com.businesslogic.owner.dto.auth.AuthRequest;
 import com.businesslogic.owner.dto.auth.AuthResponse;
 import com.businesslogic.owner.dto.auth.RegistrationRequest;
 import com.businesslogic.owner.entity.OwnerEntity;
 import com.businesslogic.owner.entity.ShopEntity;
 import com.businesslogic.owner.repository.ShopRepository;
-import com.businesslogic.owner.security.jwt.JwtProvider;
 import com.businesslogic.owner.service.OwnerService;
 import com.businesslogic.owner.service.ShopService;
 import lombok.RequiredArgsConstructor;

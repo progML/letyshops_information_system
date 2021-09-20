@@ -19,6 +19,7 @@ public class CustomUserDetails implements UserDetails {
     c.login = clientEntity.getLogin();
     c.password = clientEntity.getPassword();
     c.grantedAuthorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_CLIENT"));
+    c.grantedAuthorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_OWNER"));
     return c;
   }
 

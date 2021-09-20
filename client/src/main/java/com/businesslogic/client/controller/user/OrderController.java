@@ -35,7 +35,7 @@ public class OrderController {
   public ResponseEntity makeOrder(Principal principal) {
     userId = clientService.findByLogin(principal.getName()).getId();
     if (!basketService.findAllById(userId).isEmpty()) {
-      long count = orderService.findCount(userId); // кол-во позиций в корзине
+      long count = orderService.findNumberItemBasket(userId); // кол-во позиций в корзине
       orderService.addItem(count, orderService.findByBasketId(userId).toArray(), userId);
       basketService.deleteAllBasketByUserId(userId);
       return new ResponseEntity("Заказ сформирован, оплатите его", HttpStatus.OK);
@@ -67,10 +67,10 @@ public class OrderController {
     }
   }
 
-  //todo: добавить sender
+
   //Покупка заказа
   @GetMapping("/order/buy/{id}")
-  public ResponseEntity buyAll(@PathVariable Integer id, Principal principal) {
+  public ResponseEntity buyOrder(@PathVariable Integer id, Principal principal) {
     userId = clientService.findByLogin(principal.getName()).getId();
     orderService.buyAll(id, userId);
     sender.send("Пользователь с никнеймом: "+ principal.getName() + " приобрел товар, проверьте систему! ");
