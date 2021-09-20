@@ -3,7 +3,6 @@ package com.businesslogic.client.controller.user;
 
 import com.businesslogic.client.dto.BasketEntityDto;
 import com.businesslogic.client.service.BasketService;
-import com.businesslogic.client.service.CashBackService;
 import com.businesslogic.client.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,7 +20,7 @@ public class BasketController {
 
     private final ClientService clientService;
 
-    private final CashBackService cashBackService;
+
 
     private int userId;
 

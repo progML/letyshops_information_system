@@ -12,9 +12,6 @@ public class Receiver {
 
     private CountDownLatch latch = new CountDownLatch(1);
 
-    public CountDownLatch getLatch() {
-        return latch;
-    }
 
     @JmsListener(destination = "helloworld.q")
     public void receive(String message) {

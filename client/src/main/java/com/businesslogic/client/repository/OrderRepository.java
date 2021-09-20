@@ -46,11 +46,6 @@ public interface OrderRepository extends JpaRepository<OrderEntity, Integer> {
     @Query(nativeQuery = true, value = "UPDATE orders SET state = 'Отменено', place = '-' where id =:id and place = 'На складе' and client_id =:userId")
     void undoOrder(@Param("id") int id, @Param("userId") int userId);
 
-    //Отмена заказа продовцом
-    @Modifying
-    @Transactional
-    @Query(nativeQuery = true, value = "UPDATE orders SET state = 'Продавец отменил заказ', place = '-' where id =:id and place = 'Продавец собирает заказ'")
-    void cancellationOrder(@Param("id") int id);
 
     @Query(nativeQuery = true, value = "SELECT count(id) from orders WHERE place = 'На складе' and id =:id and client_id =:userId")
     int checkOrder(@Param("id") int id, @Param("userId") int userId);
@@ -60,12 +55,6 @@ public interface OrderRepository extends JpaRepository<OrderEntity, Integer> {
     //Просмотор оплаченных товаров
     @Query(nativeQuery = true, value = "SELECT o.id, d.name, o.place, o.state from orders o inner join orderitem o2 on o.id = o2.order_id inner join device d on o2.device_id = d.id inner join shop s on d.shop_id = s.id where s.client_id =:userId")
     List<Object> findAllOrdersFromStore(@Param("userId") int userId);
-
-    //Отправка товара продавцом
-    @Modifying
-    @Transactional
-    @Query(nativeQuery = true, value = "UPDATE orders SET place = 'Продавец отправил заказ' where id =:Id and place = 'Продавец собирает заказ' ")
-    void sendOrder(@Param("Id") int id);
 
 
     //Получение заказа пользователем

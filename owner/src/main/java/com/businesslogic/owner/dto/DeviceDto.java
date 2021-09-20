@@ -11,9 +11,7 @@ public class DeviceDto {
     return cost;
   }
 
-  public void setCost(float cost) {
-    this.cost = cost;
-  }
+
 
   public int getId() {
     return id;

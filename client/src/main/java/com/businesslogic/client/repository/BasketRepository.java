@@ -1,7 +1,6 @@
 package com.businesslogic.client.repository;
 
 
-import com.businesslogic.client.dto.ShopEntityDto;
 import com.businesslogic.client.entity.BasketEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -47,21 +46,14 @@ public interface BasketRepository extends JpaRepository<BasketEntity, Integer> {
   @Query(nativeQuery = true, value = "DELETE FROM basket WHERE id =:Id")
   void deleteByBasketId(@Param("Id") int Id);
 
-  void deleteById(int id);
+
 
   // Поиск пользователя по id
   @Query(nativeQuery = true, value = "SELECT client_id FROM basket WHERE id =:Id")
   int findUserByBasketId(@Param("Id") int Id);
 
 
-  @Modifying
-  @Query(nativeQuery = true, value = "UPDATE basket SET status = 1 where id =:id")
-  int buyUpdate(@Param("id") int id);
 
-
-  @Modifying
-  @Query(nativeQuery = true, value = "DELETE from basket where status = 1")
-  void deleteAlLByStatus();
 
 
 }

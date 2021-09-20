@@ -19,9 +19,7 @@ public class CashbackDto {
     return cashback;
   }
 
-  public void setCashback(float cashback) {
-    this.cashback = cashback;
-  }
+
 
 
   public CashbackDto(int id, float cashback) {

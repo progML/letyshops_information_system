@@ -1,7 +1,6 @@
 package com.businesslogic.owner.dto.auth;
 
 
-import com.businesslogic.owner.entity.OwnerEntity;
 import lombok.Data;
 
 
@@ -9,12 +8,12 @@ import lombok.Data;
 public class RegistrationRequest {
 
 
-  private String login;
+    private String login;
 
-  private String password;
+    private String password;
 
-  private String name;
+    private String name;
 
-  private float cashback;
+    private float cashback;
 
 }
