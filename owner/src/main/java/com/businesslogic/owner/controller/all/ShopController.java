@@ -27,6 +27,7 @@ public class ShopController {
     //просмотр магазинов
     @GetMapping("/shop")
     public ResponseEntity<List<ShopEntity>> getShops(){
+        System.out.println("le");
         return new ResponseEntity<>(shopService.showShops(), HttpStatus.OK);
     }
 
